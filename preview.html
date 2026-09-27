@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Floating Clock preview</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 220vh;
+      font-family: Georgia, "Times New Roman", serif;
+      color: #241f1a;
+      background: #e6dfd4;
+    }
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(8px);
+      z-index: 0;
+    }
+    .a { width: 420px; height: 420px; right: -80px; bottom: -90px; background: #e39a55; }
+    .b { width: 380px; height: 380px; left: -100px; top: 80px; background: #9eb0d4; }
+    .c { width: 280px; height: 280px; right: 18%; top: 40%; background: #d7b4ae; }
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 72px 28px 120px;
+    }
+    h1 {
+      font-weight: 500;
+      font-size: 42px;
+      letter-spacing: -0.03em;
+      margin: 0 0 12px;
+    }
+    p { font-size: 18px; line-height: 1.55; }
+    button {
+      font: inherit;
+      border: 0;
+      background: #241f1a;
+      color: #f6f1ea;
+      border-radius: 999px;
+      padding: 10px 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="blob a"></div>
+  <div class="blob b"></div>
+  <div class="blob c"></div>
+  <main>
+    <h1>A quiet page</h1>
+    <p>This preview shows the floating clock over a normal page. Drag it, open the controls, and scroll — it should stay on screen.</p>
+    <p><button type="button" id="toggle">Show or hide clock</button></p>
+    <p>The real thing is the Chrome extension in this folder. Load the folder from chrome://extensions with Developer mode on, then click the toolbar icon on any website.</p>
+    <p>Scroll down to confirm the clock stays fixed while the page moves.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere, nisl a luctus hendrerit, massa sem aliquam nisi, vitae fermentum massa sem at justo.</p>
+    <p>More writing sits here so the page is tall enough to scroll under the clock.</p>
+    <p>Another paragraph keeps the column long. The clock should not scroll away with this text.</p>
+    <p>End of the preview page.</p>
+  </main>
+  <script src="defaults.js?v=4"></script>
+  <script src="styles.js?v=4"></script>
+  <script src="content.js?v=5"></script>
+  <script>
+    document.getElementById("toggle").addEventListener("click", () => {
+      if (window.lumenToggle) window.lumenToggle();
+    });
+  </script>
+</body>
+</html>
